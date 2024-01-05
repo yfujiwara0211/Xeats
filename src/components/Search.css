@@ -1,33 +1,57 @@
-
 .Container {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
 }
 
-.Container form {
+.main {
     background-color: rgba(255, 255, 255, 0.802);
-    width: 70%;
-    max-width: 450px;
-    padding: 30px;
+    width: 80%;
+    padding: 20px;
     border-radius: 10px;
-    border: 1px solid #dfdfdf;
 }
   
-.Container h1 {
-    margin-bottom: 12px;
-    font-size: 3rem;
-}
-  
-.Container input {
-    min-width: 90%;
-    padding: 5px 12px;
-    margin-bottom: 36px;
-    outline: none;
-    height: 30px;
+input {
+    margin-bottom: 10px;
+    font-size: 18px;
     border: 1px solid gray;
-    font-size: 16px;
+    padding: 10px 20px;
+    height: 30px;
     border-radius: 5px;
+    width: 40%;
+}
+
+.content {
+    width: 1530px;
+    padding-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+  
+.box {
+    width: 250px;
+    height: 380px;
+    border: 1px solid gray;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+img {
+    width: 230px;
+    height: 150px;
+}
+
+.content button {
+    background-color: rgba(157, 136, 91, 0.751);
+    width: 50%;
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+  
+.content button:hover {
+    background-color: rgb(157, 136, 91);
 }

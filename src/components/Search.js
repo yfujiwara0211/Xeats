@@ -1,36 +1,38 @@
-import React from "react";
-import Results from './Results';
+import React, { useEffect, useRef, useState } from "react";
 import "./Search.css";
 import background from "./AdobeStock_120766551.jpeg";
-import { useRef, useState } from 'react';
+import image from "./AdobeStock_297158540.jpeg";
 
-const Search = () => {
-  const [fetchData,setFetchdata] = useState([]);
-  // const API_KEY = "40889916-0c4daad984dff6dc9f10dcd07";
+function Search() {
+  const [menus, setMenus] = useState([]);
+  const [searchQuery, setSearchQuery] = useState([]);
+  const ref = useRef();
 
-  // useRefフック: コンポーネントで参照を保持するためのフック。
-  // この例では、テキスト入力フィールドへの参照を保持している。
-  const ref = useRef(); // refに入力した値を取得する
+  const handleSearch = () => {
+    setSearchQuery(
+      menus.filter((menu) => menu.title.toLowerCase().includes(ref.current.value))
+    );
+  };
 
-  // handleSubmit関数: フォーム送信時に実行される。
-  const handleSubmit = (e) => {
-    e.preventDefault(); // フォーム送信によるページリロードを防ぐ
-    console.log(ref.current.value); // 現在のテキスト入力値をログに出力
-    
-    // Pixabay APIへのリクエストURLを組み立てる
-    // Pixabay APIの構成↓
-    // "https://pixabay.com/api/?key=" + API_KEY + "&q=" + {ref.current.value} + "&image_type=photo";
-    const endpointURL = `https://pixabay.com/api/?key=40889916-0c4daad984dff6dc9f10dcd07&q=${ref.current.value}&image_type=photo`;
+  const dummyData = [
+    { id: 1, title: "12月の献立：根菜と塩麹を使った、腸を労わる献立 10品", price: "11000円（税込）", photo: image, url: "https://tech0-jp.com/" },
+    { id: 2, title: "1月の献立：根菜と塩麹を使った、腸を労わる献立 10品", price: "11000円（税込）", photo: image, url: "https://tech0-jp.com/"},
+    { id: 3, title: "2月の献立：根菜と塩麹を使った、腸を労わる献立 10品", price: "11000円（税込）", photo: image, url: "https://tech0-jp.com/"},
+    { id: 4, title: "3月の献立：根菜と塩麹を使った、腸を労わる献立 10品", price: "11000円（税込）", photo: image, url: "https://tech0-jp.com/"},
+    { id: 5, title: "4月の献立：根菜と塩麹を使った、腸を労わる献立 10品", price: "11000円（税込）", photo: image, url: "https://tech0-jp.com/"},
+  ];
 
-    // Fetch APIを使用してデータを非同期で取得
-    fetch(endpointURL).then((res) => {
-      return res.json();
-      })
-      .then((data) => {
-        // data内のhitsを指定する。
-        console.log(data.hits); // 取得したデータのログ出力
-        setFetchdata(data.hits);  // 状態を更新し、コンポーネントを再レンダリング
-      });
+  useEffect(() => {
+    // APIから取得する代わりにローカルのダミーデータをセット
+    setMenus(dummyData);
+    setSearchQuery(dummyData); // 初期表示用にもセット
+  }, []);
+
+  const handleDetailClick = (url) => {
+    // ボタンクリック時の処理
+    if (url) {
+      window.open(url, "_blank"); // 新しいタブでリンクを開く
+    }
   };
 
   return (
@@ -40,15 +42,24 @@ const Search = () => {
     backgroundSize: 'cover',
     }}
     >
-      <form onSubmit={(e) => handleSubmit(e)}>
+      <div className="main">
         <h1>献立を探そう</h1>
-        <input type="text" placeholder='食材、料理、味付け等' ref={ref}/>
-      </form>
-      {/* ImageGalleryンポーネント)のレンダリング */}
-      {/* fetchDataを`ImageGallery`に渡している。 */}
-      <Results fetchData={fetchData}/>
+        <input type="text" placeholder='食材、料理、味付け等' ref={ref} onChange={() => handleSearch()} />
+        <hr />
+        <div className="content">
+          {searchQuery.map((menu) => (
+            <div className="box" key={menu.id}>
+              <h3>{menu.title}</h3>
+              <hr />
+              <img src={menu.photo} alt="" />
+              <h5>{menu.price}</h5>
+              <button onClick={() => handleDetailClick(menu.url)}>詳細画面</button>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
-    );
-  };
+  );
+};
 
 export default Search;

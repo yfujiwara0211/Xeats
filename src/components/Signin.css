@@ -1,78 +1,79 @@
 body {
-    overflow-y: hidden;
-  }
-  
-  .fromContainer {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .fromContainer form {
-    background-color: rgba(255, 255, 255, 0.802);
-    width: 70%;
-    max-width: 450px;
-    padding: 30px;
-    border-radius: 10px;
-    border: 1px solid #dfdfdf;
-    box-shadow: 10px 5px 15px -5px #777777;
-  }
-  
-  h1 {
-    text-align: center;
-  }
-  
-  .uiForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 250px;
-  }
-  
-  .formField {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  .formField input {
-    border: 1px solid gray;
-    font-size: 16px;
-    padding: 20px;
-    border-radius: 5px;
-  }
-  
-  .formField input:focus {
-    outline: none;
-  }
-  
-  button {
-    background-color: rgba(157, 136, 91, 0.751);
-    width: 40%;
-    margin-top: 10px;
-    border: none;
-    border-radius: 15px;
-    padding: 10px 30px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  
-  button:hover {
-    background-color: rgb(157, 136, 91);
-  }
-  
-  .errorMsg {
-    color: red;
-    margin: 0;
-    align-self: flex-start;
-  }
-  
-  .msgOK {
-    color: green;
-    margin-top: 15px;
-  }
+  overflow-y: hidden;
+}
+
+.fromContainer {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fromContainer form {
+  background-color: rgba(255, 255, 255, 0.802);
+  width: 70%;
+  max-width: 450px;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid #dfdfdf;
+  box-shadow: 10px 5px 15px -5px #777777;
+}
+
+h1 {
+  text-align: center;
+}
+
+.uiForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 250px;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200%;
+}
+
+.formField input {
+  border: 1px solid gray;
+  font-size: 16px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.formField input:focus {
+  outline: none;
+}
+
+button {
+  background-color: rgba(157, 136, 91, 0.751);
+  width: 40%;
+  margin-top: 10px;
+  border: none;
+  border-radius: 15px;
+  padding: 10px 30px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+button:hover {
+  background-color: rgb(157, 136, 91);
+}
+
+.errorMsg {
+  color: red;
+  margin: 0;
+  align-self: flex-start;
+}
+
+.msgOK {
+  color: green;
+  margin-top: 15px;
+}
