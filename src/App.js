@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Search from './components/Search'
 import Navbar from './components/Navbar';
 import Signin from './components/Signin';
+import Detail from './components/Detail';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route  path="/" element={<Home />}></Route>
         <Route  path="/signin" element={<Signin handleSignInSuccess={handleSignInSuccess}/>}></Route>
         <Route path="/search" element={<Search />}></Route>
+        <Route path="/detail" element={<Detail />}></Route>
       </Routes>
     </Router>
   );

@@ -1,0 +1,40 @@
+
+.Container button {
+    background-color: rgba(157, 136, 91, 0.751);
+    width: 50%;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 20px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.mainDetail {
+    background-color: rgba(255, 255, 255, 0.802);
+    width: 80%;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.contentDetail {
+    width: 100%;
+    padding-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentDetail p {
+    margin: 2%;
+}
+
+.contentDetail img {
+    width: 30%;
+    height: 30%;
+    margin-right: 30px;
+    border-radius: 10px;
+}
